@@ -1,0 +1,193 @@
+@import "bootstrap";
+@import "color-me-sass";
+
+/* mixins, variables, etc. */
+
+$grayMediumLight: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $grayLight;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+/* miscellaneous */
+
+.main-container {
+  padding-top: 100px;
+}
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+/* header */
+/* BOOTSTRAP OVERRIDE */
+.navbar .nav > li > a {
+  padding: 15px 15px 10px;
+  font-weight: bold;
+}
+
+.navbar #navbar-under .nav > li > a {
+  padding: 10px 15px 10px;
+  font-weight: bold;
+  color: white;
+}
+
+.navbar-inverse #navbar-under .nav .active > a, 
+.navbar-inverse #navbar-under .nav .active > a:hover, 
+.navbar-inverse #navbar-under .nav .active > a:focus {
+  color: white;
+  background-color: $greenDark;
+}
+
+.navbar #navbar-under .nav > .active > a,
+.navbar #navbar-under .nav > .active > a:hover,
+.navbar #navbar-under .nav > .active > a:focus {
+  text-decoration: none;
+  -webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+  -moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+}
+
+#login {
+  &:hover {
+    color: $green;
+  }
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  height: 80px;
+}
+
+#img {
+  padding-top: 0px;
+  height: 100px;
+  float: left;
+}
+
+#navbar-under {
+  background-color: $green;
+  background-image: -moz-linear-gradient(top, $greenBoot, $greenBoot);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($greenBoot), to($greenBoot));
+  background-image: -webkit-linear-gradient(top, $greenBoot, $greenBoot);
+  background-image: -o-linear-gradient(top, $greenBoot, $greenBoot);
+  background-image: linear-gradient(to bottom, $greenBoot, $greenBoot);
+  background-repeat: repeat-x;
+  border-color: $greenDark;
+}
+
+.padding-container {
+  padding-top: 50px;
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $grayMediumLight;
+  color: $grayLight;
+  a {
+    color: $gray;
+    &:hover {
+      color: $grayDarker;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+  }
+}
