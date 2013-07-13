@@ -15,10 +15,11 @@ $grayMediumLight: #eaeaea;
 
 html {
   overflow-y: scroll;
+  overflow-x: scroll;
 }
 
 body {
-  padding-top: 60px;
+  /* padding-top: 60px; */
 }
 
 section {
@@ -65,10 +66,6 @@ p {
 
 /* miscellaneous */
 
-.main-container {
-  padding-top: 100px;
-}
-
 .debug_dump {
   clear: both;
   float: left;
@@ -77,11 +74,34 @@ p {
   @include box_sizing;
 }
 
+.main-container {
+  padding-top: 100px;
+}
+
 /* header */
+
 /* BOOTSTRAP OVERRIDE */
 .navbar .nav > li > a {
   padding: 15px 15px 10px;
   font-weight: bold;
+  text-transform: uppercase;
+  color: $white;
+}
+
+.navbar-inner {
+  background-image: -moz-linear-gradient(top, $blueRoyal, $blueAirforce);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($blueRoyal), to($blueAirforce));
+  background-image: -webkit-linear-gradient(top, $blueRoyal, $blueAirforce);
+  background-image: -o-linear-gradient(top, $blueRoyal, $blueAirforce);
+  background-image: linear-gradient(to bottom, $blueRoyal, $blueAirforce);
+  /*background-repeat: repeat-x;
+  filter: none; */
+}
+
+.navbar .divider-vertical {
+  background-color: $greenMint;
+  border-right: 1px solid $blueDull;
+  border-left: 1px solid $blueSteel;
 }
 
 .navbar #navbar-under .nav > li > a {
@@ -94,7 +114,7 @@ p {
 .navbar-inverse #navbar-under .nav .active > a:hover, 
 .navbar-inverse #navbar-under .nav .active > a:focus {
   color: white;
-  background-color: $greenDark;
+  background-color: $blueDarker;
 }
 
 .navbar #navbar-under .nav > .active > a,
@@ -108,20 +128,19 @@ p {
 
 #login {
   &:hover {
-    color: $green;
+    color: $black;
   }
 }
 
 #logo {
   float: left;
   margin-right: 10px;
-  height: 80px;
 }
 
-#img {
-  padding-top: 0px;
-  height: 100px;
-  float: left;
+#img-logo {
+  padding-top: -10px;
+  padding-left: 20px;
+  height: 55px;
 }
 
 #navbar-under {

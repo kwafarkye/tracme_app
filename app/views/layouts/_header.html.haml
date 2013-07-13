@@ -1,10 +1,12 @@
-%header.navbar.navbar-fixed-top.navbar-inverse
-   %div.navbar-inner
-      %div.container
-         = link_to(image_tag("logo.png", :alt=>"Tracme", :class=>"brand", :id=>"img"), root_path,  :title=>"Home Page", :id=>"logo", :class=>"brand")
+%header.navbar.navbar-static-top
+   .navbar-inner
+      .container.pull-left
+         = link_to("TRACE ME", root_path, :alt=>"Home", :title=>"Home Page", :class=>"brand")
          %nav
-            %ul.nav.pull-right
-               %li= link_to "Sign In", '#', :id=>"login"
-         %nav
-            %ul.nav.pull-left
-               %li= link_to "About", about_path, :id=>"about"
+            %ul.nav.nav-pills
+               %li{:class=>"divider-vertical"}
+               %li= link_to "New Post", createpost_path, :id=>"posts"
+               %li{:class=>"divider-vertical"}
+               %li= link_to "About", about_path, :id=>"about", :class=>"header-item"
+               %li{:class=>"divider-vertical"}
+               %li= link_to "Sign In", '#', :id=>"login", :class=>"header-item"
