@@ -1,4 +1,10 @@
 class PostsController < ApplicationController
+   before_action :signed_in_user, only: [:edit, :update, :create, :new]
+
+   def index
+      @posts = Post.all
+   end
+
    def show
       #@post = Post.all
       @post = Post.find(params[:id])
@@ -38,6 +44,14 @@ class PostsController < ApplicationController
 
       def post_params
          params.require(:post).permit(:title, :info)
+      end
+
+      #Before filter
+      def signed_in_user
+         unless signed_in?
+            store_location
+            redirect_to signin_url, notice: "You must be signed in to complete this action.."
+         end
       end
 
 end

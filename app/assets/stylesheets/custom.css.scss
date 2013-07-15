@@ -214,3 +214,19 @@ footer {
     }
   }
 }
+
+/* Posts Index */
+.myBox {
+  list-style: none;
+  margin: 0;
+  overflow: auto;
+  padding: 10px 0;
+  border-top: 1px solid $grayLighter;
+  border-bottom: 1px solid $grayLighter;
+  background-color: $greenLight;
+  .link_block {
+    display: block;
+    height: 100px;
+    width: 100px;
+  }
+}
