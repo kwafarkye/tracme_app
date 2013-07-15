@@ -1,6 +1,11 @@
 - provide(:title, "View Posts")
 %h1 TracMe Updates and Posts
-= javascript_include_tag "posts_page"
+%script{type: "text/javascript"}
+   :plain
+      $(".myBox").click(function gotoPost(){
+        window.location=$(this).find("a").attr("href");
+        return false;
+      });
 
 .container
    = will_paginate
