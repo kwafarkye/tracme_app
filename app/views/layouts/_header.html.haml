@@ -5,8 +5,14 @@
          %nav
             %ul.nav.nav-pills
                %li{:class=>"divider-vertical"}
-               %li= link_to "New Post", createpost_path, :id=>"posts"
+               %li= link_to "Posts", createpost_path, :id=>"posts"
                %li{:class=>"divider-vertical"}
                %li= link_to "About", about_path, :id=>"about", :class=>"header-item"
                %li{:class=>"divider-vertical"}
-               %li= link_to "Sign In", '#', :id=>"login", :class=>"header-item"
+               -if signed_in?
+                  %li= link_to "New Post", createpost_path, :id=>"posts"
+                  %li{:class=>"divider-vertical"}
+                  %li= link_to "Sign Out", signout_path, method: "delete", :id=>"posts"
+                  %li{:class=>"divider-vertical"}
+               -else
+                  %li= link_to "Sign In", signin_path, :id=>"login", :class=>"header-item"
