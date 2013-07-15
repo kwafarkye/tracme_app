@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
    before_action :signed_in_user, only: [:edit, :update, :create, :new]
+   before_action :admin_user, only: :destroy
 
    def index
-      @posts = Post.all
+      @posts = Post.paginate(page: params[:page], per_page: 3).order('id DESC')
    end
 
    def show
@@ -40,6 +41,12 @@ class PostsController < ApplicationController
       end
    end
 
+   def destroy
+      Post.find(params[:id]).destroy
+      flash[:success] = "Post has been deleted"
+      redirect_to posts_url
+   end
+
    private
 
       def post_params
@@ -51,6 +58,12 @@ class PostsController < ApplicationController
          unless signed_in?
             store_location
             redirect_to signin_url, notice: "You must be signed in to complete this action.."
+         end
+      end
+
+      def admin_user
+         unless current_user.admin?
+            redirect_to(root_path)
          end
       end
 

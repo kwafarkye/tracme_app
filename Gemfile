@@ -41,6 +41,7 @@ end
 
 group :production do
    gem 'pg', '0.15.1'
+   gem 'rails_12factor', '0.0.2'
 end
 
 
@@ -48,8 +49,8 @@ end
 gem 'bcrypt-ruby', '3.0.1'
 
 #Pagination gems
-#gem 'will_paginate', '3.0.4'
-#gem 'bootsrap-will_paginate', '0.0.9'
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate', '0.0.9'
 
 # Use unicorn as the app server
 # gem 'unicorn'

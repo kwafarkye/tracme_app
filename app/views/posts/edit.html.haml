@@ -1,0 +1,13 @@
+- provide(:title, "Edit Post")
+%h1 Edit This Post
+.row
+   .span6.offset3
+      =form_for(@post) do |f|
+
+         =f.label :title
+         =f.text_field :title
+
+         =f.label :info
+         =f.text_area(:info, size: "20x30")
+
+         =f.submit "Save Changes", class: "btn btn-large btn-primary"
