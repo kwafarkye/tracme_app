@@ -9,6 +9,7 @@ class PostsController < ApplicationController
    def show
       #@post = Post.all
       @post = Post.find(params[:id])
+      @current = current_user
    end
 
    def new
@@ -63,7 +64,7 @@ class PostsController < ApplicationController
 
       def admin_user
          unless current_user.admin?
-            redirect_to(root_path)
+            redirect_to root_url, notice: "You must be an admin to complete this task"
          end
       end
 
