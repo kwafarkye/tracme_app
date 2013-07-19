@@ -2,6 +2,7 @@ TracmeApp::Application.routes.draw do
   resources :posts
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :comments, only: [:create, :destroy]
   
   root 'static_pages#home'
   match '/about', to: 'static_pages#about', via: 'get'

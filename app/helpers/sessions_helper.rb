@@ -14,6 +14,19 @@ module SessionsHelper
       @current_user = user
    end
 
+   def signed_in_user
+      unless signed_in?
+         store_location
+         redirect_to signin_url, notice: "You must be signed in to complete this action.."
+      end
+   end
+
+   def admin_user
+      unless current_user.admin?
+         redirect_to root_url, notice: "You must be an admin to complete this task"
+      end
+   end
+
    def current_user
       remember_token = User.encrypt(cookies[:remember_token])
       @current_user ||= User.find_by(remember_token: remember_token)

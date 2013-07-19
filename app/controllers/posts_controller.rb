@@ -9,7 +9,10 @@ class PostsController < ApplicationController
    def show
       #@post = Post.all
       @post = Post.find(params[:id])
+      set_current_post @post
       @current = current_user
+      @comment = @post.comments.build
+      @comments = @post.comments.paginate(page: params[:page], per_page: 3)
    end
 
    def new
@@ -55,17 +58,5 @@ class PostsController < ApplicationController
       end
 
       #Before filter
-      def signed_in_user
-         unless signed_in?
-            store_location
-            redirect_to signin_url, notice: "You must be signed in to complete this action.."
-         end
-      end
-
-      def admin_user
-         unless current_user.admin?
-            redirect_to root_url, notice: "You must be an admin to complete this task"
-         end
-      end
 
 end

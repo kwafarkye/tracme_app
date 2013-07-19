@@ -1,4 +1,16 @@
 - provide(:title, @post.title)
-%h1= @post.title
--if signed_in?
-   =link_to "delete", @post, method: :delete, data: {confirm: "Are you Sure You Would Like to Delete This Post?"}
+
+.postcontent
+   %h1= @post.title
+   %p= @post.info
+   -if signed_in?
+      =link_to "delete", @post, method: :delete, data: {confirm: "Are you Sure You Would Like to Delete This Post?"}
+.span4
+   %section
+      =render 'shared/comment_form'
+.span8
+   -if @post.comments.any?
+      %h3 Comments
+      %ol.comments
+         =render @comments
+      =will_paginate @comments
