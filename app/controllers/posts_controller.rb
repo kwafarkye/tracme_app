@@ -14,6 +14,8 @@ class PostsController < ApplicationController
 
    def new
       #@post = Post.new(post_params)
+      #@post = Post.build
+      #@post.build_photo
    end
 
    def create
@@ -51,7 +53,7 @@ class PostsController < ApplicationController
    private
 
       def post_params
-         params.require(:post).permit(:title, :info)
+         params.require(:post).permit(:title, :info, :pim)
       end
 
       #Before filter

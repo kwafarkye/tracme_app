@@ -1,4 +1,5 @@
 - provide(:title, @post.title)
 %h1= @post.title
+=image_tag @post.pim.url
 -if signed_in?
    =link_to "delete", @post, method: :delete, data: {confirm: "Are you Sure You Would Like to Delete This Post?"}
