@@ -11,13 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130715181838) do
+ActiveRecord::Schema.define(version: 20130719050555) do
+
+  create_table "photos", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.string   "caption"
+    t.integer  "post_id"
+  end
+
+  create_table "post_images", force: true do |t|
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  add_index "post_images", ["post_id"], name: "index_post_images_on_post_id"
 
   create_table "posts", force: true do |t|
     t.string   "title"
     t.string   "info"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "pim_file_name"
+    t.string   "pim_content_type"
+    t.integer  "pim_file_size"
+    t.datetime "pim_updated_at"
   end
 
   create_table "users", force: true do |t|

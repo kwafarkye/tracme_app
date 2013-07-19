@@ -20,6 +20,8 @@ class PostsController < ApplicationController
 
    def create
       @post = Post.new(post_params)
+      @post.post_image = post_image.build(params[:post_image])
+      #@photo = post_image.build(params[:post_image])
       if @post.save
          #Handle a successful save
          flash[:success] = "New post created"
@@ -53,7 +55,7 @@ class PostsController < ApplicationController
    private
 
       def post_params
-         params.require(:post).permit(:title, :info, :pim)
+         params.require(:post).permit(:title, :info, post_image_attributes: [:image])
       end
 
       #Before filter
