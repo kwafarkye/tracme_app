@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
       @comment = current_post.comments.build(comments_params)
       if @comment.save
          flash[:success] = "Comment Made"
-         redirect_to root_url
+         redirect_to post_url
       else
          render 'static_pages/home'
       end

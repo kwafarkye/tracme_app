@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-   before_action :signed_in_user, only: [:edit, :update, :create, :new]
-   before_action :admin_user, only: :destroy
+   before_action :signed_in_user, only: [:edit, :update, :create, :new, :destroy]
+   #before_action :admin_user, only: :destroy
 
    def index
       @posts = Post.paginate(page: params[:page], per_page: 3).order('id DESC')
@@ -9,18 +9,31 @@ class PostsController < ApplicationController
    def show
       #@post = Post.all
       @post = Post.find(params[:id])
+      # Set the current post so that the comments controller has access to it
       set_current_post @post
+
+      # We want to know who the current user is
       @current = current_user
+
+      # Variable for uploading images
+      @attachment = @post.attachments.build
+      @attachments = @post.attachments
+      #@attachments = @post.attachments.paginate(page: params[:page], per_page: 3)
+      # Variable for making comments
       @comment = @post.comments.build
       @comments = @post.comments.paginate(page: params[:page], per_page: 3)
    end
 
    def new
-      #@post = Post.new(post_params)
+      @post = Post.new
+      #@post.build_attachment
+      #@post.attachments.build
+      #3.times { @post.attachments.build }
    end
 
    def create
       @post = Post.new(post_params)
+      #Attachment.create(params[:attachment])
       if @post.save
          #Handle a successful save
          flash[:success] = "New post created"
@@ -28,6 +41,8 @@ class PostsController < ApplicationController
       else
          render 'new'
       end
+
+      #@attach.save
    end
 
    def edit

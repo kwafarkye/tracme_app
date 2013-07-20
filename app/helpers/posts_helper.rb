@@ -1,6 +1,8 @@
 module PostsHelper
+   @remember_id = 2
+
    def set_current_post(post)
-      @remember_id = post.id
+      PostsHelper.setId(post.id)
       self.current_post = post
    end
 
@@ -9,7 +11,15 @@ module PostsHelper
    end
 
    def current_post
-      @current_post = Post.find(2)
+      @current_post = Post.find(PostsHelper.getId)
+   end
+
+   def PostsHelper.getId
+      @remember_id
+   end
+
+   def PostsHelper.setId(x)
+      @remember_id = x
    end
 
 end
