@@ -9,7 +9,7 @@
    -if @post.attachments.any?
       -for @attach in @post.attachments
          -unless @attach.image.url == "/images/original/missing.png"
-            =image_tag @attach.image.url(:medium)
+            =image_tag @attach.image.url(:thumb)
             %br
             %p= @attach.caption
             %br
