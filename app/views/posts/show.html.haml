@@ -4,18 +4,20 @@
    %h1= @post.title
    %p= @post.info
 
-   -if @attachments.any?
-      -for @a in @attachments
-         =image_tag @a.image.url
+   -if @post.attachments.any?
+      -for @attach in @post.attachments
+         =image_tag @attach.image.url(:medium)
          %br
-         %p= @a.caption
+         %p= @attach.caption
+         %br
 
    -if signed_in?
       =link_to "delete", @post, method: :delete, data: {confirm: "Are you Sure You Would Like to Delete This Post?"}
 
-   .span8
-      %section
-         =render 'shared/attachment_form'
+   -if signed_in?
+      .span8
+         %section
+            =render 'shared/attachment_form'
 .span4
    %section
       =render 'shared/comment_form'
