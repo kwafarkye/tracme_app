@@ -51,12 +51,16 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 1.75em;
   letter-spacing: -1px;
   margin-bottom: 30px;
-  text-align: center;
   font-weight: normal;
-  color: $grayLight;
+}
+
+.posttitle {
+  font-size: 1.2em;
+  text-align: center;
+  color: $black;
 }
 
 p {
@@ -229,6 +233,11 @@ footer {
   }
 }
 
+.postinfo {
+  color: black;
+  text-align: left;
+}
+
 /* Comments */
 .comments {
   list-style: none;
@@ -246,4 +255,12 @@ footer {
 
 .timestamp {
   color: $grayLight
+}
+
+.commentfield {
+  height: 100px;
+}
+
+#delete-link {
+  text-align: left
 }

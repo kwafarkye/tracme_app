@@ -4,7 +4,7 @@ class Attachment < ActiveRecord::Base
    validates :caption, length: { maximum: 10 }
 
    has_attached_file :image,
-                     :styles => { thumb: "100x100>", medium: "300x300>", large: "600x600" }#,
+                     :styles => { thumb: "100x100>", medium: "600x600>", large: "1000x1000>" }#,
                      #:default_url => "/images/:style/missing.png",
                      #:url => "/images/:style/:basename.:extension",
                      #:path => ":rails_root/public/system/images/:style/:basename.:extension"

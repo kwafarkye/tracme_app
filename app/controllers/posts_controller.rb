@@ -14,18 +14,18 @@ class PostsController < ApplicationController
 
       # We want to know who the current user is
       @current = current_user
-
+      
       # Variable for uploading images
       @attachment = @post.attachments.build
       @attachments = @post.attachments
-      #@attachments = @post.attachments.paginate(page: params[:page], per_page: 3)
+
       # Variable for making comments
       @comment = @post.comments.build
       @comments = @post.comments.paginate(page: params[:page], per_page: 3)
    end
 
    def new
-      @post = Post.new
+      #@post = Post.new
       #@post.build_attachment
       #@post.attachments.build
       #3.times { @post.attachments.build }
@@ -33,6 +33,7 @@ class PostsController < ApplicationController
 
    def create
       @post = Post.new(post_params)
+      @post.email = current_user.email
       #Attachment.create(params[:attachment])
       if @post.save
          #Handle a successful save
@@ -69,7 +70,7 @@ class PostsController < ApplicationController
    private
 
       def post_params
-         params.require(:post).permit(:title, :info)
+         params.require(:post).permit(:title, :info, :email)
       end
 
       #Before filter

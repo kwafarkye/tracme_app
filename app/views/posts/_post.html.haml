@@ -1,4 +1,5 @@
 %div.myBox
    =link_to "", post_path(post)
-   %h2= post.title
-   %p= post.info
+   %h2.posttitle= post.title
+   -post_trunc = "#{post.info[0..5]}" + "..."
+   %p.postinfo= post_trunc

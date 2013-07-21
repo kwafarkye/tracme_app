@@ -2,28 +2,34 @@
 
 .postcontent
    %h1= @post.title
+   - user = User.find_by_email(@post.email).name
+   %p= "Posted By: #{user}"
    %p= @post.info
 
    -if @post.attachments.any?
       -for @attach in @post.attachments
-         =image_tag @attach.image.url(:medium)
-         %br
-         %p= @attach.caption
-         %br
+         -unless @attach.image.url == "/images/original/missing.png"
+            =image_tag @attach.image.url(:medium)
+            %br
+            %p= @attach.caption
+            %br
 
    -if signed_in?
-      =link_to "delete", @post, method: :delete, data: {confirm: "Are you Sure You Would Like to Delete This Post?"}
+      =link_to "delete", @post, method: :delete, data: {confirm: "Are you Sure You Would Like to Delete This Post?"}, id: "delete-link"
+%hr
+%br
 
-   -if signed_in?
-      .span8
-         %section
-            =render 'shared/attachment_form'
-.span4
-   %section
-      =render 'shared/comment_form'
+-if signed_in?
+   .span8
+      =render 'shared/attachment_form'
+
+.span8
+   =render 'shared/comment_form'
 .span8
    -if @post.comments.any?
       %h3 Comments
       %ol.comments
          =render @comments
       =will_paginate @comments
+
+

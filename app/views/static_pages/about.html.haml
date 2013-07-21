@@ -1,3 +1,18 @@
 - provide(:title, "About")
-%h1 StaticPages#about
-%p Find me in app/views/static_pages/about.html.haml
+%h1 About TracMe
+%p Our team will be implementing a low cost target monitoring sensor network. Using wireless signal strength, a tracking device can be located within a specified region with relatively high accuracy compared to a GPS system. We will use WiFi signals from multiple wireless access points across campus.  A collection of signal strengths will be sampled at different locations and orientations across campus using a portable system (laptop or smartphone); this data will be sent to a base station that runs a machine learning algorithm. This machine learning algorithm produces a training model which will be used to create a map of the designated area. The device will then reference the model and localize its position on the map.
+
+%br
+
+%h2 Clients and Stakeholders
+%p Dr. Duc Tran, of the University of Massachusetts, Boston, is our client. Dr. Tran, a Computer Science professor, leads the Network Information Systems Laboratory at the university. Since 2008, a main area of his current research involves sensor networks; specifically, Dr. Tran is looking to develop a low cost alternative to GPS networks. Because of the relatively high accuracy of a GPS system, this low cost sensor network would be used for localizing things where exact accuracy is not an immediate concern. Dr. Tran believes that environmental disasters, such as oil spills and forest fires, would be best suited to use this product because they do not need a lot of accuracy. Through the use of a machine learning algorithm developed by Dr. Tran and his PhD student, Charlie Pham, this low cost sensor network will be made possible. The project deliverables will be given to Dr. Tran.
+%p As this project is mostly research based, those who will be affected by this project are researchers in the field of sensor networking and passive radar technology. Dr. Bridget Benson of Cal Poly is a stakeholder in this project. Dr. Benson is interested in sensor networks, and has worked with Dr. Tran earlier in her career. She will act as a liaison and help with any questions and problems we may have.
+
+%br
+%h2 Project Goals and Objectives
+%p The primary goal of this project is to create a low cost network system that successfully positions a mobile device in a predefined outdoor area. We want to do this by utilizing the location and signal strength of wireless access points around campus to triangulate the location of the device. In order to accomplish these goals, some objectives must be accomplished:
+
+%ol
+   %li Establish a reliable way of sampling signal strengths of wireless access points on campus.
+   %li Configure a program to organize this data and send it to the base station that performs the machine learning algorithm.
+   %li Create an android application that uses the information gathered from the machine learning algorithm to locate itself on a map.
