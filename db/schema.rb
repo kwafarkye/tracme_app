@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130719193935) do
+ActiveRecord::Schema.define(version: 20130721233601) do
 
   create_table "attachments", force: true do |t|
-    t.string   "caption"
     t.integer  "post_id"
+    t.string   "caption"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_file_name"
@@ -23,8 +23,6 @@ ActiveRecord::Schema.define(version: 20130719193935) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
   end
-
-  add_index "attachments", ["post_id"], name: "index_attachments_on_post_id"
 
   create_table "comments", force: true do |t|
     t.string   "content"
