@@ -6,15 +6,6 @@
    %p= "Posted By: #{user}"
    %p= @post.info
 
-   
-   -if signed_in?
-      =link_to "delete", @post, method: :delete, data: {confirm: "Are you Sure You Would Like to Delete This Post?"}, id: "delete-link"
-%hr
-%br
-
--if signed_in?
-   .span8
-      =render 'shared/attachment_form'
 
 .span8
    =render 'shared/comment_form'
