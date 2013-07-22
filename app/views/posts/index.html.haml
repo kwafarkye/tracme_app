@@ -1,12 +1,6 @@
 - provide(:title, "View Posts")
 %h1 TracMe Updates and Posts
-%script{type: "text/javascript"}
-   :plain
-      $(".myBox").click(function gotoPost(){
-        window.location=$(this).find("a").attr("href");
-        return false;
-      });
-
+=javascript_include_tag "posts_page", "data-turbolinks-track" => true
 .container
    = will_paginate
    - @posts.each do |post|
