@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130721233601) do
+ActiveRecord::Schema.define(version: 20130722012209) do
 
   create_table "attachments", force: true do |t|
     t.integer  "post_id"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20130721233601) do
 
   create_table "posts", force: true do |t|
     t.string   "title"
-    t.string   "info"
+    t.text     "info",       limit: 4294967295
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
